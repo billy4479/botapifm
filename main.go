@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"os"
 
 	"github.com/labstack/echo/v4"
@@ -35,4 +36,10 @@ func main() {
 	e.POST("/download", MakeEndpoint)
 	e.POST("/notifyUpload", NotifyUpload)
 	e.GET("/download/:id", Download)
+
+	log.Println("Starting botapifm on port 4479")
+	err := e.Start(":4479")
+	if err != nil {
+		panic(err)
+	}
 }
