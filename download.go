@@ -38,5 +38,7 @@ func Download(c echo.Context) error {
 		return err
 	}
 
+	delete(endpoints, UUID)
+
 	return os.Remove(path)
 }
